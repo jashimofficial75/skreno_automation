@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../pages/LoginPage';
 
 test.describe('Login', () => {
+  test.use({ storageState: { cookies: [], origins: [] } });
   test('valid user can log in', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.goto();
